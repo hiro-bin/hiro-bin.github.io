@@ -1,5 +1,5 @@
 const fs = require('fs');
-const main_view = fs.readFileSync('./main.html', 'utf-8');
+const main_view = fs.readFileSync('./index.html', 'utf-8');
 const calculator_view = fs.readFileSync('./calculator.html', 'utf-8');
 const lotto_view = fs.readFileSync('./lotto.html', 'utf-8');
 const todolist_view = fs.readFileSync('./todolist.html', 'utf-8');

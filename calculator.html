@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>계산기</h1>
+    <form id="calculator-form">
+        - 첫 번째 숫자를 입력해주세요.
+        <input type="number" placeholder="입력" id="a" required>
+        <br>
+        - 연산자를 선택해주세요.
+        <div id="operators">
+            <label>+<input type="radio" value="+" name="operator" checked></label>
+            <label>-<input type="radio" value="-" name="operator"></label>
+            <label>*<input type="radio" value="*" name="operator"></label>
+            <label>/<input type="radio" value="/" name="operator"></label>
+        </div>
+        - 두 번째 숫자를 입력해주세요.
+        <input type="number" placeholder="입력" id="b" required>
+        <br>
+        <button type="button" onclick="calculate()">=</button>
+        <br>
+        - 연산 결과입니다.
+        <span id="result"></span>
+        <br>
+        <button type="reset">초기화</button>
+    </form>
+    <br>
+    <a href="/">처음으로 돌아가기</a>
+    <script>
+        function calculate() {
+            const a = parseInt(document.getElementById('a').value);
+            const b = parseInt(document.getElementById('b').value);
+            const operator = document.querySelector('input[name="operator"]:checked').value;
+            const result = document.getElementById('result');
+
+            let temp = 0;
+            if(operator == '+') temp = a + b;
+            if(operator == '-') temp = a - b;
+            if(operator == '*') temp = a * b;
+            if(operator == '/') {
+                if(b===0) temp = '0으로 나눌 수 없습니다.'
+                else temp = a / b;
+            }
+            result.textContent = temp;
+            console.log(a, b, typeof(a), typeof(b), operator, typeof(operator));
+        }
+    </script>
+</body>
+</html>

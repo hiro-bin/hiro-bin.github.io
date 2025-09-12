@@ -35,11 +35,40 @@ function css(response) {
     response.end();
 }
 
+function calculator_img(response) {
+    fs.readFile('/img/calculator.png', function(err, data) {
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write(data);
+        response.end();
+    });
+}
+
+function lotto_img(response) {
+    fs.readFile('/img/lotto.png', function(err, data) {
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write(data);
+        response.end();
+    });
+}
+
+function todolist_img(response) {
+    fs.readFile('/img/todolist.png', function(err, data) {
+        response.writeHead(200, {'Content-Type': 'text/html'});
+        response.write(data);
+        response.end();
+    });
+}
+
 let handle = {};
 handle['/'] = main;
 handle['/calculator'] = calculator;
 handle['/lotto'] = lotto;
 handle['/todolist'] = todolist;
 handle['/style.css'] = css;
+
+// img directory
+handle['/img/calculator.png'] = calculator_img;
+handle['/img/lotto.png'] = lotto_img;
+handle['/img/todolist.png'] = todolist_img;
 
 exports.handle = handle;
